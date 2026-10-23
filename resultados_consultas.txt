@@ -1,0 +1,100 @@
+======================================================================
+1. Todos los videojuegos
+SQL: SELECT id, title, genre, price, release_year, developer_id FROM games ORDER BY id;
+----------------------------------------------------------------------
+id | title | genre | price | release_year | developer_id
+----------------------------------------------------------------------
+1 | The Legend of Zelda: Tears of the Kingdom | Accion-Aventura | 1399.00 | 2023 | 1
+2 | Super Mario Bros. Wonder | Plataformas | 1099.00 | 2023 | 1
+3 | Mario Kart 8 Deluxe | Carreras | 999.00 | 2017 | 1
+4 | Red Dead Redemption 2 | Accion-Aventura | 899.00 | 2018 | 2
+5 | Grand Theft Auto V | Accion-Aventura | 499.00 | 2013 | 2
+6 | The Witcher 3: Wild Hunt | RPG | 799.00 | 2015 | 3
+7 | Cyberpunk 2077 | RPG | 999.00 | 2020 | 3
+8 | Elden Ring | Accion RPG | 1299.00 | 2022 | 4
+9 | Dark Souls III | Accion RPG | 699.00 | 2016 | 4
+10 | Sekiro: Shadows Die Twice | Accion-Aventura | 849.00 | 2019 | 4
+11 | Half-Life 2 | Shooter | 249.00 | 2004 | 5
+12 | Portal 2 | Puzzle | 299.00 | 2011 | 5
+13 | Counter-Strike 2 | Shooter | 399.00 | 2023 | 5
+14 | Thronebreaker: The Witcher Tales | RPG | 349.00 | 2018 | 3
+15 | Armored Core VI: Fires of Rubicon | Accion | 1199.00 | 2023 | 4
+(15 filas)
+
+======================================================================
+2. Videojuegos con precio mayor a $500
+SQL: SELECT title, price FROM games WHERE price > 500 ORDER BY price DESC;
+----------------------------------------------------------------------
+title | price
+----------------------------------------------------------------------
+The Legend of Zelda: Tears of the Kingdom | 1399.00
+Elden Ring | 1299.00
+Armored Core VI: Fires of Rubicon | 1199.00
+Super Mario Bros. Wonder | 1099.00
+Cyberpunk 2077 | 999.00
+Mario Kart 8 Deluxe | 999.00
+Red Dead Redemption 2 | 899.00
+Sekiro: Shadows Die Twice | 849.00
+The Witcher 3: Wild Hunt | 799.00
+Dark Souls III | 699.00
+(10 filas)
+
+======================================================================
+3. Videojuegos publicados despues de 2020
+SQL: SELECT title, release_year FROM games WHERE release_year > 2020 ORDER BY release_year;
+----------------------------------------------------------------------
+title | release_year
+----------------------------------------------------------------------
+Elden Ring | 2022
+The Legend of Zelda: Tears of the Kingdom | 2023
+Super Mario Bros. Wonder | 2023
+Counter-Strike 2 | 2023
+Armored Core VI: Fires of Rubicon | 2023
+(5 filas)
+
+======================================================================
+4. Videojuegos del genero RPG
+SQL: SELECT title, genre FROM games WHERE genre = 'RPG' ORDER BY title;
+----------------------------------------------------------------------
+title | genre
+----------------------------------------------------------------------
+Cyberpunk 2077 | RPG
+The Witcher 3: Wild Hunt | RPG
+Thronebreaker: The Witcher Tales | RPG
+(3 filas)
+
+======================================================================
+5. Videojuegos del mas caro al mas barato
+SQL: SELECT title, price FROM games ORDER BY price DESC;
+----------------------------------------------------------------------
+title | price
+----------------------------------------------------------------------
+The Legend of Zelda: Tears of the Kingdom | 1399.00
+Elden Ring | 1299.00
+Armored Core VI: Fires of Rubicon | 1199.00
+Super Mario Bros. Wonder | 1099.00
+Mario Kart 8 Deluxe | 999.00
+Cyberpunk 2077 | 999.00
+Red Dead Redemption 2 | 899.00
+Sekiro: Shadows Die Twice | 849.00
+The Witcher 3: Wild Hunt | 799.00
+Dark Souls III | 699.00
+Grand Theft Auto V | 499.00
+Counter-Strike 2 | 399.00
+Thronebreaker: The Witcher Tales | 349.00
+Portal 2 | 299.00
+Half-Life 2 | 249.00
+(15 filas)
+
+======================================================================
+6. Videojuegos de FromSoftware
+SQL: SELECT g.title, d.name AS developer FROM games g JOIN developers d ON g.developer_id = d.id WHERE d.name = 'FromSoftware' ORDER BY g.title;
+----------------------------------------------------------------------
+title | developer
+----------------------------------------------------------------------
+Armored Core VI: Fires of Rubicon | FromSoftware
+Dark Souls III | FromSoftware
+Elden Ring | FromSoftware
+Sekiro: Shadows Die Twice | FromSoftware
+(4 filas)
+
